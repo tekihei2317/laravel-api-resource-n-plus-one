@@ -8,3 +8,5 @@ app:
 	docker compose exec app bash
 fresh:
 	docker compose exec app php artisan migrate:fresh --seed
+tinker:
+	docker compose exec app php artisan tinker
