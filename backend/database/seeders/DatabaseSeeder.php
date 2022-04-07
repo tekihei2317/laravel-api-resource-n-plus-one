@@ -14,6 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $appEnv = config('app.env');
+
+        if ($appEnv === 'local') {
+            $this->call(TaskStatusSeeder::class);
+            $this->call(TaskSeeder::class);
+        }
     }
 }

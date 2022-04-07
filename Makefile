@@ -6,3 +6,5 @@ ps:
 	docker compose ps
 app:
 	docker compose exec app bash
+fresh:
+	docker compose exec app php artisan migrate:fresh --seed
