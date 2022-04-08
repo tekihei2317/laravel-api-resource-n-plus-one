@@ -4,6 +4,8 @@ up:
 	docker compose up -d app
 ps:
 	docker compose ps
+down:
+	docker compose down
 app:
 	docker compose exec app bash
 fresh:

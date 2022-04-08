@@ -16,26 +16,12 @@ class TaskSeeder extends Seeder
      */
     public function run()
     {
-        $tasks = [
-            [
-                'name' => 'todo1',
-                'description' => '1つ目',
-                'task_status_id' => TaskStatus::OPEN->value,
-            ],
-            [
-                'name' => 'todo2',
-                'description' => '2つ目',
-                'task_status_id' => TaskStatus::IN_PROGRESS->value,
-            ],
-            [
-                'name' => 'todo3',
-                'description' => '3つ目',
-                'task_status_id' => TaskStatus::CLOSED->value,
-            ],
-        ];
-
-        foreach ($tasks as $task) {
-            Task::create($task);
+        for ($i = 1; $i <= 10; $i++) {
+            Task::create([
+                'name' => "todo{$i}",
+                'description' => "{$i}個目",
+                'task_status_id' => collect(TaskStatus::cases())->random()->value,
+            ]);
         }
     }
 }

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\TaskResource;
 use App\Models\Task;
-use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
@@ -16,6 +15,6 @@ class TaskController extends Controller
     /** タスク一覧を取得する */
     public function index()
     {
-        return TaskResource::collection($this->taskModel->all());
+        return TaskResource::collection($this->taskModel->with('status')->get());
     }
 }
