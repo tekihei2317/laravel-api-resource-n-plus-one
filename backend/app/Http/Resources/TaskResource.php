@@ -21,7 +21,7 @@ class TaskResource extends JsonResource
             'id' => $task->id,
             'name' => $task->name,
             'description' => $task->description,
-            'status' => $task->status->name,
+            'status' => $this->whenLoaded('status')->name,
         ];
     }
 }
