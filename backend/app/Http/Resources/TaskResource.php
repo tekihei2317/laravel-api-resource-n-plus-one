@@ -16,12 +16,13 @@ class TaskResource extends JsonResource
     {
         /** @var \App\Models\Task */
         $task = $this->resource;
+        assert($task->relationLoaded('status'));
 
         return [
             'id' => $task->id,
             'name' => $task->name,
             'description' => $task->description,
-            'status' => $this->whenLoaded('status')->name,
+            'status' => $task->status->name,
         ];
     }
 }
